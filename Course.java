@@ -1,9 +1,12 @@
 package application;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import javafx.event.ActionEvent;
 
 public class Course {
 	private String cat;
@@ -26,7 +29,7 @@ public class Course {
 		
 	}
 	// called when next button in course is pressed
-	public void updatePage(int pageNb) throws SQLException
+	public void updatePage(int pageNb, ActionEvent event) throws SQLException, IOException
 	{
 		String tableName = cat + "_pages";
 		
@@ -41,6 +44,10 @@ public class Course {
     		String imgURL = result.getString(3);
     		
     		Page page = new Page(pageDesc, imgURL, pageNb, cat);
+    		
+    		CourseController courseController = new CourseController(page, event);
+    		
+    		
     		
     		
         }

@@ -43,14 +43,14 @@ public class MathController {
     void openCalculus(ActionEvent event) throws IOException, SQLException {
     	Course course = new Course("calculus");
     	int pageNb = 0;
-    	course.updatePage(pageNb);
+    	course.updatePage(pageNb, event);
     }
 
     @FXML
     void openTrigo(ActionEvent event) throws IOException, SQLException {
     	Course course = new Course("trigonometry");
     	int pageNb = 0;
-    	course.updatePage(pageNb);
+    	course.updatePage(pageNb, event);
     }
 
     @FXML

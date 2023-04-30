@@ -1,11 +1,11 @@
 package application;
 
 public class Page {
-	private String desc;
-	private String image;
-	private int pageNb;
-	private String cat;
-	private String title;
+	protected String desc;
+	protected String image;
+	protected int pageNb;
+	protected String cat;
+	protected String title;
 	
 	public Page(String desc, String image, int pageNb, String cat) {
 		super();
