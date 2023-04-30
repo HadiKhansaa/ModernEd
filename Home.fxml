@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?import com.gluonhq.charm.glisten.control.Icon?>-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #540051;" styleClass="gradient" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeController">
+   <children>
+      <GridPane hgap="10.0" layoutX="76.0" layoutY="145.0" prefHeight="159.0" prefWidth="449.0" style="-fx-alignment: center;" vgap="10.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+             <Button fx:id="english" contentDisplay="TOP" mnemonicParsing="false" onAction="#openEnglish" prefHeight="221.0" prefWidth="268.0" styleClass=".button" stylesheets="@style.css" text="English" GridPane.columnIndex="1">
+                 <graphic>
+                     <!--                  <Icon content="HOME" prefHeight="69.0" prefWidth="70.0" scaleX="2.5" scaleY="2.5" />-->
+                 </graphic>
+               <graphic>
+                  <ImageView fx:id="englishIcon" fitHeight="81.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/english.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+             </Button>
+             <Button fx:id="math" contentDisplay="TOP" mnemonicParsing="false" onAction="#openMath" prefHeight="221.0" prefWidth="268.0" styleClass=".button" stylesheets="@style.css" text="Mathematics">
+                 <graphic>
+                     <!--                  <Icon content="HOME" prefHeight="69.0" prefWidth="70.0" scaleX="2.5" scaleY="2.5" />-->
+                 </graphic>
+               <graphic>
+                  <ImageView fx:id="mathIcon" fitHeight="79.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/math.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+             </Button>
+             <Button fx:id="programming" contentDisplay="TOP" mnemonicParsing="false" onAction="#openProg" prefHeight="182.0" prefWidth="166.0" styleClass=".button" stylesheets="@style.css" text="Programming" GridPane.columnIndex="2">
+                 <graphic>
+                     <!--                  <Icon content="HOME" prefHeight="69.0" prefWidth="70.0" scaleX="2.5" scaleY="2.5" />-->
+                 </graphic>
+               <graphic>
+                  <ImageView fx:id="programmingIcon" fitHeight="80.0" fitWidth="79.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/programming.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+             </Button>
+             
+                        
+                                 </children>
+      </GridPane>
+      <Pane layoutX="-7.0" layoutY="-6.0" prefHeight="101.0" prefWidth="1160.0" style="-fx-background-color: #888;" AnchorPane.bottomAnchor="663.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-6.0" />
+      <Pane layoutX="-7.0" layoutY="14.0" prefHeight="52.0" prefWidth="229.0">
+         <children>
+            <Label alignment="TOP_LEFT" layoutX="59.0" layoutY="5.0" prefHeight="39.0" prefWidth="146.0" text="ModernED" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="29.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="39.0" fitWidth="28.0" layoutX="25.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/leaf.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <ButtonBar layoutX="235.0" layoutY="24.0" prefHeight="31.0" prefWidth="336.0">
+        <buttons>
+            <Button fx:id="home" mnemonicParsing="false" prefHeight="75.0" prefWidth="166.0" style="-fx-background-color: #3308EE;" styleClass=".button" stylesheets="@style.css" text="Home" textFill="WHITE">
+               <font>
+                  <Font size="1.0" />
+               </font>
+            </Button>
+            <Button fx:id="register" mnemonicParsing="false" onAction="#registerClick" prefHeight="77.0" prefWidth="166.0" styleClass=".button" stylesheets="@style.css" text="Register" />
+            <Button fx:id="contact" mnemonicParsing="false" onAction="#contactClick" prefHeight="82.0" prefWidth="166.0" styleClass=".button" stylesheets="@style.css" text="Contact" />
+            <Button fx:id="profile" mnemonicParsing="false" onAction="#profileClick" prefHeight="75.0" prefWidth="166.0" styleClass=".button" stylesheets="@style.css" text="Profile" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #540051;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.CourseController">
+   <right>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets right="50.0" />
+         </BorderPane.margin>
+         <children>
+            <ImageView fx:id="image" fitHeight="150.0" fitWidth="200.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/math.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="next" layoutX="55.0" layoutY="254.0" mnemonicParsing="false" style="-fx-background-color: #3308EE;" stylesheets="@style.css" text="Next" textFill="WHITE" />
+            <Text fill="WHITE" layoutX="37.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Page 1 of 27">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </right>
+   <left>
+      <Text fx:id="textArea" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Calculus is a branch of mathematics that deals with the study of rates of change and how things change over time. It is a foundational topic for many areas of science and engineering, and has many practical applications in the real world. Calculus is divided into two main branches: differential calculus and integral calculus.Differential calculus deals with the study of how things change. It is concerned with finding the instantaneous rate of change of a function at a particular point. This involves the concept of the derivative, which is a mathematical expression that represents the rate of change of a function at a given point.Integral calculus, on the other hand, deals with the study of how things accumulate over time. It is concerned with finding the total amount of something over a given interval. This involves the concept of the integral, which is a mathematical expression that represents the area under a curve.Together, differential and integral calculus form the basis of modern calculus and have many applications in fields such as physics, engineering, economics, and computer science." wrappingWidth="300.0" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="30.0" />
+         </BorderPane.margin>
+      </Text>
+   </left>
+   <top>
+      <HBox prefHeight="35.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="back" mnemonicParsing="false" onAction="#openHome" style="-fx-background-color: #540051;" text="&lt;-" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="10.0" top="5.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+            <Text fx:id="title" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Introduction to Calculus" wrappingWidth="261.75390625">
+               <HBox.margin>
+                  <Insets left="150.0" top="10.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="23.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

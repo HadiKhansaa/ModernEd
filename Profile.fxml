@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProfileController">
+   <left>
+      <AnchorPane prefHeight="400.0" prefWidth="250.0" styleClass="gradient" stylesheets="@style.css" BorderPane.alignment="CENTER">
+         <children>
+            <Text fill="WHITE" layoutX="67.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
+               <font>
+                  <Font name="System Bold Italic" size="37.0" />
+               </font>
+            </Text>
+            <Hyperlink fx:id="home" layoutX="22.0" layoutY="14.0" onAction="#homeClick" text="Home" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="register" layoutX="69.0" layoutY="14.0" onAction="#registerClick" text="Register" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="contact" layoutX="127.0" layoutY="14.0" onAction="#contactClick" text="Contact" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="profile" layoutX="185.0" layoutY="14.0" text="Profile" textFill="#540051">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="357.0" BorderPane.alignment="CENTER">
+         <children>
+              <Label layoutX="71.0" layoutY="71.0" text="Name:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+              <Label fx:id="name" layoutX="178.0" layoutY="71.0" text="name" textFill="#3308ee">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+              
+                    <Label layoutX="71.0" layoutY="141.0" text="Email:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+              <Label fx:id="email" layoutX="177.0" layoutY="141.0" text="email" textFill="#3308ee">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+              
+                    <Label layoutX="71.0" layoutY="213.0" text="Phone:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+              <Label fx:id="phone" layoutX="175.0" layoutY="214.0" prefHeight="34.0" prefWidth="72.0" text="phone" textFill="#3308ee">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+              
+                    <Label layoutX="71.0" layoutY="282.0" text="Age:">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+              <Label fx:id="age" layoutX="179.0" layoutY="282.0" text="age" textFill="#3308ee">
+               <font>
+                  <Font name="System Bold Italic" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>
