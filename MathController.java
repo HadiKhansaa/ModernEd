@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,13 +40,17 @@ public class MathController {
     }
 
     @FXML
-    void openCalculus(ActionEvent event) throws IOException {
-    	Util.openPage(this, event, "Calculus.fxml");
+    void openCalculus(ActionEvent event) throws IOException, SQLException {
+    	Course course = new Course("calculus");
+    	int pageNb = 0;
+    	course.updatePage(pageNb);
     }
 
     @FXML
-    void openTrigo(ActionEvent event) throws IOException {
-    	Util.openPage(this, event, "Trigo.fxml");
+    void openTrigo(ActionEvent event) throws IOException, SQLException {
+    	Course course = new Course("trigonometry");
+    	int pageNb = 0;
+    	course.updatePage(pageNb);
     }
 
     @FXML

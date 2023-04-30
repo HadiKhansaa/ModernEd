@@ -28,10 +28,7 @@ public class Course {
 	// called when next button in course is pressed
 	public void updatePage(int pageNb) throws SQLException
 	{
-		String tableName = "";
-		if(cat == "math") tableName = "math_pages";
-		else if (cat == "englis") tableName = "english_pages";
-		else tableName = "programming_pages";
+		String tableName = cat + "_pages";
 		
 		String queryString = "SELECT * FROM " + tableName + " WHERE pageId = " + pageNb;
 		Connection conn = DbManager.DbInit();
@@ -44,6 +41,8 @@ public class Course {
     		String imgURL = result.getString(3);
     		
     		Page page = new Page(pageDesc, imgURL, pageNb, cat);
+    		
+    		
         }
 	}
 }
