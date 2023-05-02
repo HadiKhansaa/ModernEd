@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 public class LoginController implements Initializable{
 	public static String EMAIL, NAME, PHONE;
 	public static boolean LOGGED = false;
-	public static int AGE;
+	public static int AGE, ID;
 	
 	
     @FXML

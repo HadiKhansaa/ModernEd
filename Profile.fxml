@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,7 +13,7 @@
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="250.0" styleClass="gradient" stylesheets="@style.css" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="WHITE" layoutX="67.0" layoutY="215.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
+            <Text fill="WHITE" layoutX="66.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profile">
                <font>
                   <Font name="System Bold Italic" size="37.0" />
                </font>
@@ -36,55 +38,39 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Hyperlink>
+            <FontAwesomeIcon fill="WHITE" glyphName="USERS" layoutX="99.0" layoutY="192.0" size="4em" wrappingWidth="55.85714244842529" />
          </children>
       </AnchorPane>
    </left>
    <right>
-      <AnchorPane prefHeight="400.0" prefWidth="357.0" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="400.0" prefWidth="375.0" BorderPane.alignment="CENTER">
          <children>
-              <Label layoutX="71.0" layoutY="71.0" text="Name:">
+              <Label fx:id="name" layoutX="73.0" layoutY="62.0" prefHeight="35.0" prefWidth="104.0" text="name" textFill="#3308ee">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-              <Label fx:id="name" layoutX="178.0" layoutY="71.0" text="name" textFill="#3308ee">
-               <font>
-                  <Font name="System Bold Italic" size="24.0" />
-               </font>
-            </Label>
-              
-                    <Label layoutX="71.0" layoutY="141.0" text="Email:">
+              <Label fx:id="email" layoutX="66.0" layoutY="176.0" prefHeight="35.0" prefWidth="215.0" text="email" textFill="#3308ee">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-              <Label fx:id="email" layoutX="177.0" layoutY="141.0" text="email" textFill="#3308ee">
-               <font>
-                  <Font name="System Bold Italic" size="24.0" />
-               </font>
-            </Label>
-              
-                    <Label layoutX="71.0" layoutY="213.0" text="Phone:">
+              <Label fx:id="phone" layoutX="230.0" layoutY="62.0" prefHeight="35.0" prefWidth="146.0" text="phone" textFill="#3308ee">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-              <Label fx:id="phone" layoutX="175.0" layoutY="214.0" prefHeight="34.0" prefWidth="72.0" text="phone" textFill="#3308ee">
-               <font>
-                  <Font name="System Bold Italic" size="24.0" />
-               </font>
-            </Label>
-              
-                    <Label layoutX="71.0" layoutY="282.0" text="Age:">
+              <Label fx:id="age" layoutX="311.0" layoutY="176.0" text="age" textFill="#3308ee">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
-              <Label fx:id="age" layoutX="179.0" layoutY="282.0" text="age" textFill="#3308ee">
-               <font>
-                  <Font name="System Bold Italic" size="24.0" />
-               </font>
-            </Label>
+            <FontAwesomeIcon glyphName="USER" layoutX="35.0" layoutY="88.0" size="2em" />
+            <FontAwesomeIcon glyphName="ENVELOPE" layoutX="23.0" layoutY="202.0" size="2em" />
+            <FontAwesomeIcon glyphName="PHONE" layoutX="191.0" layoutY="88.0" size="2em" />
+            <FontAwesomeIcon glyphName="CHILD" layoutX="282.0" layoutY="202.0" size="2em" />
+            <Button fx:id="logout" layoutX="90.0" layoutY="352.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="70.0" text="Logout" />
+            <Button fx:id="deleteAccount" layoutX="182.0" layoutY="352.0" mnemonicParsing="false" onAction="#deleteAccount" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: red;" text="Delete Account" textFill="WHITE" />
          </children>
       </AnchorPane>
    </right>

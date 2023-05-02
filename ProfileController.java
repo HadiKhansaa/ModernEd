@@ -3,6 +3,7 @@ package application;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
@@ -12,11 +13,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class ProfileController implements Initializable{
 
+	
 	@FXML
 	private Label name;
 	@FXML
@@ -25,6 +28,21 @@ public class ProfileController implements Initializable{
 	private Label phone;
 	@FXML
 	private Label age;
+	@FXML
+	private Button logout;
+	@FXML
+	private Button deleteAccount;
+	
+	@FXML
+    void logout(ActionEvent event) throws IOException {
+		Util.openPage(this, event,"Login.fxml");
+    }
+	
+	@FXML
+    void deleteAccount(ActionEvent event) throws SQLException, IOException {
+		DbManager.deleteAccount(LoginController.ID, event, this);
+		logout(event);
+    }
 	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {

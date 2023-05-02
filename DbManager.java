@@ -6,8 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -38,10 +40,10 @@ public class DbManager {
         String url = "jdbc:mysql://localhost:3306/moderned";
         String username = "root";
         String password = "";
-        if(db!=null) return db;
+//        if(db!=null) return db;
         try (Connection conn = DriverManager.getConnection(url, username, password)) {
             System.out.println("Connected to database!");
-            db = conn;
+//            db = conn;
             return conn;
         } catch (SQLException e) {
             System.err.println("Failed to connect to database: " + e.getMessage());
@@ -104,10 +106,11 @@ public class DbManager {
                     ResultSet rs2 = stmt2.executeQuery();
                     
                     if (rs2.next()) {
+                    	LoginController.ID = rs2.getInt(1);
 	            		LoginController.EMAIL = rs2.getString(2);
 	            		LoginController.NAME = rs2.getString(3);
-	            		LoginController.AGE = Integer.parseInt(rs2.getString(5));
-	            		LoginController.PHONE = rs2.getString(6);
+	            		LoginController.AGE = rs2.getInt(6);
+	            		LoginController.PHONE = rs2.getString(5);
 	            		
 	            		LoginController.LOGGED = true;
                     }
@@ -139,5 +142,18 @@ public class DbManager {
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException("Error verifying password: " + e.getMessage());
         }
+    }
+    
+    public static void deleteAccount(int userId, ActionEvent event, Object o) throws SQLException, IOException {
+    	String url = "jdbc:mysql://localhost:3306/moderned";
+        String username = "root";
+        String password = "";
+        Connection conn = DriverManager.getConnection(url, username, password);
+        String sql2 = "DELETE FROM course_registeration WHERE userID = " + userId;
+        PreparedStatement stmt2 = conn.prepareStatement(sql2);
+        String sql = "DELETE FROM users WHERE id = " + userId;
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        stmt2.execute();
+        stmt.execute();
     }
 }

@@ -67,14 +67,14 @@
                                  </children>
       </GridPane>
       <Pane layoutX="-7.0" layoutY="-6.0" prefHeight="101.0" prefWidth="1160.0" style="-fx-background-color: #888;" AnchorPane.bottomAnchor="663.0" AnchorPane.leftAnchor="-7.0" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="-6.0" />
-      <Pane layoutX="-7.0" layoutY="14.0" prefHeight="52.0" prefWidth="229.0">
+      <Pane layoutY="14.0" prefHeight="52.0" prefWidth="229.0">
          <children>
-            <Label alignment="TOP_LEFT" layoutX="59.0" layoutY="5.0" prefHeight="39.0" prefWidth="146.0" text="ModernED" textAlignment="CENTER" textFill="WHITE">
+            <Label alignment="TOP_LEFT" layoutX="80.0" layoutY="5.0" prefHeight="43.0" prefWidth="150.0" text="ModernED" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="29.0" />
                </font>
             </Label>
-            <ImageView fitHeight="39.0" fitWidth="28.0" layoutX="25.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="52.0" fitWidth="48.0" layoutX="20.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/leaf.png" />
                </image>
