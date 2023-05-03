@@ -47,11 +47,8 @@ public class MathController {
     void openCalculus(ActionEvent event) throws IOException, SQLException {
     	Course course = new Course("calculus");
     	int pageNb = 1;
-//    	Connection connection = DbManager.DbInit();
-    	String url = "jdbc:mysql://localhost:3306/moderned";
-        String username = "root";
-        String password = "";
-        Connection connection = DriverManager.getConnection(url, username, password);
+
+        Connection connection = DriverManager.getConnection(DbManager.url, DbManager.username, DbManager.password);
         
     	String sql = "SELECT * FROM course_registeration WHERE courseId = 1 and userId = " + LoginController.ID;
         PreparedStatement stmt = connection.prepareStatement(sql);
@@ -59,6 +56,7 @@ public class MathController {
         if(rs.next())
         {
         	pageNb = rs.getInt(3);
+        	CourseController.maxPageNb = pageNb;
         }
         else // user not yet registered in course
         {
@@ -70,6 +68,7 @@ public class MathController {
             stmt2.setInt(3, 1);
             Boolean rs2 = stmt2.execute();
             System.out.println("Rows inserted: " + rs2);
+            CourseController.maxPageNb = 1;
         }
     	course.updatePage(pageNb, event);
     }
@@ -79,11 +78,8 @@ public class MathController {
     	Course course = new Course("trigonometry");
     	
     	int pageNb = 1;
-//    	Connection connection = DbManager.DbInit();
-    	String url = "jdbc:mysql://localhost:3306/moderned";
-        String username = "root";
-        String password = "";
-        Connection connection = DriverManager.getConnection(url, username, password);
+
+        Connection connection = DriverManager.getConnection(DbManager.url, DbManager.username, DbManager.password);
         
     	String sql = "SELECT * FROM course_registeration WHERE courseId = 2 and userId = " + LoginController.ID;
         PreparedStatement stmt = connection.prepareStatement(sql);
@@ -91,6 +87,7 @@ public class MathController {
         if(rs.next())
         {
         	pageNb = rs.getInt(3);
+        	CourseController.maxPageNb = pageNb;
         }
         else // user not yet registered in course
         {
@@ -102,6 +99,7 @@ public class MathController {
             stmt2.setInt(3, 1);
             Boolean rs2 = stmt2.execute();
             System.out.println("Rows inserted: " + rs2);
+            CourseController.maxPageNb = 1;
         }
     	course.updatePage(pageNb, event);
     	

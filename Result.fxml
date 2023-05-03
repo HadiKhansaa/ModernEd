@@ -39,7 +39,7 @@
             <Font name="Chalkboard SE Light" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="retry" layoutX="63.0" layoutY="329.0" mnemonicParsing="false" onAction="#onClickRetry" prefHeight="32.0" prefWidth="91.0" text="Retry" />
-      <Button fx:id="done" layoutX="195.0" layoutY="329.0" mnemonicParsing="false" onAction="#onClickDone" prefHeight="32.0" prefWidth="91.0" text="Done" />
+      <Button fx:id="retry" layoutX="91.0" layoutY="329.0" mnemonicParsing="false" onAction="#onClickRetry" prefHeight="32.0" prefWidth="91.0" text="Retry" />
+      <Button fx:id="done" layoutX="223.0" layoutY="329.0" mnemonicParsing="false" onAction="#onClickDone" prefHeight="32.0" prefWidth="91.0" text="Done" />
    </children>
 </AnchorPane>

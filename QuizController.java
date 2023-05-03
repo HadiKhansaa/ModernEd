@@ -4,16 +4,27 @@ package application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Random;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class QuizController {
+	
+	ProfileController profileController = new ProfileController();
     @FXML
     public Label question;
 
@@ -28,20 +39,36 @@ public class QuizController {
     Integer[] random = {1,2,3,4};
 
 
-    public void next(ActionEvent actionEvent){
+    public void next(ActionEvent actionEvent) throws SQLException{
         loadQuestions();
 
     }
 
-    private void loadQuestions(){
+    private void loadQuestions() throws SQLException{
         counter++;
         if(counter == 11){
             //move to result stage
             try {
+            	if(correct>7) {
+            		//modify database to course done
+                    Connection conn = DriverManager.getConnection(DbManager.url, DbManager.username, DbManager.password);
+                    
+                    int courseId = 0;
+                    String cat = CourseController.cat;
+        	        if(cat == "calculus") courseId = 1;
+        			if(cat == "trigonometry") courseId = 2;
+        			if(cat == "grammar") courseId = 3;
+        			if(cat == "writing") courseId = 4;
+        			if(cat == "introToProgramming") courseId = 5;
+        			if(cat == "oop") courseId = 6;
+        			
+                    String sql = "UPDATE course_registeration SET pageNb = 21 WHERE userId = " + LoginController.ID + " and courseId = " + courseId;
+                    PreparedStatement stmt = conn.prepareStatement(sql);
+                    stmt.execute();
+            		notifyProfile();
+            	}
                 Stage thisStage =(Stage) opt1.getScene().getWindow();
-
                 FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Result.fxml"));
-
                 Scene scene = new Scene(fxmlLoader.load());
                 thisStage.setScene(scene);
                 thisStage.show();
@@ -52,6 +79,12 @@ public class QuizController {
             }
         }
         else{
+            
+            opt1.setStyle("-fx-background-color: white; -fx-wrap-text: true;");
+            opt2.setStyle("-fx-background-color: white; -fx-wrap-text: true;");
+            opt3.setStyle("-fx-background-color: white; -fx-wrap-text: true;");
+            opt4.setStyle("-fx-background-color: white; -fx-wrap-text: true;");
+
             question.setText(counter + ". "+ Quiz.questions[counter-1].get("question"));
             shuffleArray(random);
             opt1.setText(Quiz.questions[counter-1].get("answer"+random[0]));
@@ -63,13 +96,7 @@ public class QuizController {
             opt3.setDisable(false);
             opt4.setDisable(false);
             next.setDisable(true);
-            opt1.setStyle("-fx-background-color: white;");
-            opt2.setStyle("-fx-background-color: white;");
-            opt3.setStyle("-fx-background-color: white;");
-            opt4.setStyle("-fx-background-color: white;");
 
-//            timer.setText("hi");
-//            startTime();
         }
     }
 
@@ -82,6 +109,12 @@ public class QuizController {
             arr[i] = arr[j];
             arr[j] = temp;
         }
+        
+        if(quizTimer!=null)
+        {
+        	quizTimer.resetTimer(16);
+        	quizTimer.start();
+        }
     }
     @FXML
     public void optClicked(ActionEvent actionEvent) {
@@ -92,7 +125,6 @@ public class QuizController {
 
         if (ChosenAnswer.equals( correctAnswer)) {
             correct++;
-//            timer.setText(correct + "/" + 10);
         }
         else
             wrong++;
@@ -101,13 +133,15 @@ public class QuizController {
 //        opt2.setDisable(true);
 //        opt3.setDisable(true);
 //        opt4.setDisable(true);
-        opt1.setStyle("-fx-background-color: red;");
-        opt2.setStyle("-fx-background-color: red;");
-        opt3.setStyle("-fx-background-color: red;");
-        opt4.setStyle("-fx-background-color: red;");
-        correctButton.setStyle("-fx-background-color: green;");
+        opt1.setStyle("-fx-background-color: red; -fx-wrap-text: true;");
+        opt2.setStyle("-fx-background-color: red; -fx-wrap-text: true;");
+        opt3.setStyle("-fx-background-color: red; -fx-wrap-text: true;");
+        opt4.setStyle("-fx-background-color: red; -fx-wrap-text: true;");
+        correctButton.setStyle("-fx-background-color: green; -fx-wrap-text: true;");
         
         next.setDisable(false);
+        quizTimer.timer.cancel();
+        quizTimer.resetTimer(16);
     }
 
 
@@ -122,46 +156,34 @@ public class QuizController {
             return opt4;
         }
     }
-
-//    private final int timeRemaining = 10; // set the time for each question here (in seconds)
-//
-//    private void startTime() {
-////        final Label timeLabel = new Label(String.valueOf(timeRemaining));
-//
-//        timer.setText("00:" + String.format("%02d", timeRemaining));
-//        Timeline timeline = new Timeline();
-//        timeline.setCycleCount(Timeline.INDEFINITE);
-//        KeyFrame keyFrame = new KeyFrame(Duration.seconds(1), event -> {
-//            timer.setText(String.valueOf(Integer.parseInt(timer.getText()) - 1));
-//            if (Integer.parseInt(timer.getText()) <= 0) {
-//                if (timeRemaining >= 0) {
-//                    timer.setText("00:" + String.format("%02d", timeRemaining));
-//                } else {
-////                    timeline.stop();
-//                    timer.setText("00:" + String.format("%02d", timeRemaining));
-////                    next.fire();
-//                    // code to handle when time runs out
-//                }
-//            }
-//        });
-//        timeline.getKeyFrames().add(keyFrame);
-//        timeline.playFromStart();
-//    }
-
-
-
-
-
-
-    @FXML
-    public void initialize() {
-        Quiz.setQuestions(CourseController.cat);
-        loadQuestions();
-
+    
+    private void notifyProfile() throws IOException {
+    	profileController.fillBar(CourseController.cat);
     }
 
-
-
+    private QuizTimer quizTimer;
+    @FXML
+    public void initialize() throws SQLException {    	
+        Quiz.setQuestions(CourseController.cat);
+        loadQuestions();
+        QuizTimer qt = new QuizTimer(16, timer, this::timeUpAction);
+        qt.start();
+        quizTimer = qt;
+    }
+    
+    public void timeUpAction() {
+    	opt1.setStyle("-fx-background-color: red; -fx-wrap-text: true;");
+        opt2.setStyle("-fx-background-color: red; -fx-wrap-text: true;");
+        opt3.setStyle("-fx-background-color: red; -fx-wrap-text: true;");
+        opt4.setStyle("-fx-background-color: red; -fx-wrap-text: true;");        
+        next.setDisable(false);
+        
+        opt1.setDisable(true);
+        opt2.setDisable(true);
+        opt3.setDisable(true);
+        opt4.setDisable(true);
+        wrong++;
+        
+        quizTimer.timer.cancel();
+    }
 }
-
-

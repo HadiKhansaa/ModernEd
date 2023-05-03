@@ -22,4 +22,16 @@ public class Util {
         stage.show();
 	}
 	
+	public static int getCourseId(String cat) {
+		int courseId = 0;
+		if(cat == "calculus") courseId = 1;
+		if(cat == "trigonometry") courseId = 2;
+		if(cat == "grammar") courseId = 3;
+		if(cat == "writing") courseId = 4;
+		if(cat == "introToProgramming") courseId = 5;
+		if(cat == "oop") courseId = 6;
+		
+		return courseId;
+	}
+	
 }

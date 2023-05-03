@@ -21,10 +21,12 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class CourseController implements Initializable {
-	public final int COURSE_SIZE = 20;
+	public int COURSE_SIZE = 20;
 	public static int tempNb;
 	public static int maxPage = 1;
+	public static int maxPageNb = 1;
 	public static String cat;
+	public static boolean tickOn = false;
     @FXML
     private ImageView image;
 
@@ -41,6 +43,9 @@ public class CourseController implements Initializable {
     private Text pageNb;
     
     @FXML
+    private ImageView tick;
+    
+    @FXML
     public void goBack(ActionEvent event) throws SQLException, IOException {
     	Course course = new Course(CourseController.cat);
     	course.updatePage(CourseController.tempNb-1, event);
@@ -54,19 +59,12 @@ public class CourseController implements Initializable {
     @FXML
     public void loadNextPage(ActionEvent event) throws SQLException, IOException {
     	if(tempNb<COURSE_SIZE) {
-	    	String url = "jdbc:mysql://localhost:3306/moderned";
-	        String username = "root";
-	        String password = "";
-	        int courseId = 0;
+
+	        
 	        String cat = CourseController.cat;
-	        if(cat == "calculus") courseId = 1;
-			if(cat == "trigonometry") courseId = 2;
-			if(cat == "grammar") courseId = 3;
-			if(cat == "writing") courseId = 4;
-			if(cat == "introToProgramming") courseId = 5;
-			if(cat == "oop") courseId = 6;
-	        Connection connection = DriverManager.getConnection(url, username, password);
-	        if(tempNb+1>maxPage) {
+	        int courseId = Util.getCourseId(cat);
+	        Connection connection = DriverManager.getConnection(DbManager.url, DbManager.username, DbManager.password);
+	        if(tempNb+1>maxPageNb) {
 	        	maxPage = tempNb+1;
 	        	String sql = "UPDATE course_registeration SET pageNb = pageNb+1 WHERE userId = " + LoginController.ID + " and courseId = " + courseId;
 	        	PreparedStatement stmt = connection.prepareStatement(sql);
@@ -88,7 +86,15 @@ public class CourseController implements Initializable {
     	controller.textArea.setText(page.desc);
 //    	controller.image.setImage(new javafx.scene.image.Image(page.image));
     	controller.title.setText(page.title);
-    	controller.pageNb.setText("Page " + page.pageNb + " of 20");
+    	int sizeOfCourse = 19;
+    	if(page.cat.equals("trigonometry")) sizeOfCourse = 15;
+    	if(page.cat.equals("oop")) sizeOfCourse = 9;
+    	controller.pageNb.setText("Page " + page.pageNb + " of " + sizeOfCourse);
+    	if(page.pageNb < maxPageNb)
+    		controller.tick.setImage(new javafx.scene.image.Image(getClass().getResource("images/tick.png").toString()));
+    	else {
+    		controller.tick.setImage(null);
+		}
     	tempNb = page.pageNb;
     	CourseController.cat = page.cat;
     	Scene scene = new Scene(root);

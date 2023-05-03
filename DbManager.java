@@ -15,7 +15,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class DbManager {
-	
+    public static String url = "jdbc:mysql://localhost:3306/moderned";
+    public static String username = "root";
+    public static String password = "";
+    
 	public static Connection db;
 	public static String hashPassword(String password) {
         try {

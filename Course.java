@@ -30,6 +30,18 @@ public class Course {
 	// called when next button in course is pressed
 	public void updatePage(int pageNb, ActionEvent event) throws SQLException, IOException
 	{	
+		if(cat == "trigonometry" && pageNb>15)
+		{
+			CourseController.cat = cat;
+			Util.openPage(this, event, "quiz.fxml");
+			return;
+		}
+		if(cat.equals("oop") && pageNb>9) 
+		{
+			CourseController.cat = cat;
+			Util.openPage(this, event, "quiz.fxml");
+			return;
+		}
 		if(pageNb>=20) 
 		{
 			// initializing static variable cat
@@ -46,13 +58,10 @@ public class Course {
 			if(this.cat == "introToProgramming") courseId = 5;
 			if(cat == "oop") courseId = 6;
 		
-			System.out.println("pageId:"+pageNb+"courseId:"+courseId);
+			System.out.println("pageId:"+pageNb+" courseId:"+courseId);
 			String queryString = "SELECT * FROM course_pages WHERE pageId = " + pageNb + " and courseId = " + courseId;
-	//		Connection conn = DbManager.DbInit();
-			String url = "jdbc:mysql://localhost:3306/moderned";
-	        String username = "root";
-	        String password = "";
-	        Connection conn = DriverManager.getConnection(url, username, password);
+
+	        Connection conn = DriverManager.getConnection(DbManager.url, DbManager.username, DbManager.password);
 			PreparedStatement stmt = conn.prepareStatement(queryString);
 			ResultSet result =stmt.executeQuery();
 			

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,31 +14,39 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <Button fx:id="opt1" layoutX="69.0" layoutY="168.0" mnemonicParsing="false" onAction="#optClicked" prefHeight="60.0" prefWidth="190.0" stylesheets="@style.css" text="Button">
+      <Button fx:id="opt1" layoutX="69.0" layoutY="168.0" mnemonicParsing="false" onAction="#optClicked" prefHeight="84.0" prefWidth="190.0" style="-fx-wrap-text: true;" stylesheets="@style.css" text="Button" textAlignment="CENTER">
          <font>
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="opt4" layoutX="296.0" layoutY="277.0" mnemonicParsing="false" onAction="#optClicked" prefHeight="60.0" prefWidth="190.0" stylesheets="@style.css" text="Button">
+      <Button fx:id="opt4" layoutX="296.0" layoutY="277.0" mnemonicParsing="false" onAction="#optClicked" prefHeight="84.0" prefWidth="190.0" style="-fx-wrap-text: true;" stylesheets="@style.css" text="Button" textAlignment="CENTER">
          <font>
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="opt3" layoutX="69.0" layoutY="277.0" mnemonicParsing="false" onAction="#optClicked" prefHeight="60.0" prefWidth="190.0" stylesheets="@style.css" text="Button">
+      <Button fx:id="opt3" layoutX="69.0" layoutY="277.0" mnemonicParsing="false" onAction="#optClicked" prefHeight="84.0" prefWidth="190.0" style="-fx-wrap-text: true;" stylesheets="@style.css" text="Button" textAlignment="CENTER">
+         <font>
+            <Font name="SansSerif Regular" size="20.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Button fx:id="opt2" layoutX="296.0" layoutY="169.0" mnemonicParsing="false" onAction="#optClicked" prefHeight="84.0" prefWidth="190.0" style="-fx-wrap-text: true;" stylesheets="@style.css" text="Button" textAlignment="CENTER">
          <font>
             <Font name="SansSerif Regular" size="20.0" />
          </font>
       </Button>
-      <Button fx:id="opt2" layoutX="296.0" layoutY="169.0" mnemonicParsing="false" onAction="#optClicked" prefHeight="60.0" prefWidth="190.0" stylesheets="@style.css" text="Button">
-         <font>
-            <Font name="SansSerif Regular" size="20.0" />
-         </font>
-      </Button>
-      <Button fx:id="next" layoutX="502.0" layoutY="229.0" mnemonicParsing="false" onAction="#next" prefHeight="37.0" prefWidth="82.0" stylesheets="@style.css" text="&gt;&gt;">
+      <Button fx:id="next" layoutX="525.0" layoutY="234.0" mnemonicParsing="false" onAction="#next" prefHeight="37.0" prefWidth="37.0" style="-fx-background-color: blue;" stylesheets="@style.css" text="&gt;&gt;" textFill="WHITE">
          <font>
             <Font name="Corbel Light" size="89.0" />
          </font>
       </Button>
       <FontAwesomeIcon glyphName="QUESTION" layoutX="69.0" layoutY="42.0" />
+      <Label fx:id="timer" layoutX="544.0" layoutY="44.0" text="9" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
