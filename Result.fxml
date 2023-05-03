@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #b7c422;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ResultController">
+   <children>
+      <Label alignment="CENTER" layoutX="118.0" layoutY="21.0" prefHeight="64.0" prefWidth="168.0" text="RESULTS" textAlignment="CENTER">
+         <font>
+            <Font name="Chalkboard" size="30.0" />
+         </font></Label>
+      <Label fx:id="result" alignment="TOP_LEFT" layoutX="56.0" layoutY="207.0" prefHeight="164.0" prefWidth="310.0" text="Label" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Brush Script MT Italic" size="24.0" />
+         </font>
+      </Label>
+      <ProgressIndicator fx:id="correctProg" layoutX="416.0" layoutY="53.0" minHeight="130.0" minWidth="130.0" prefHeight="108.0" prefWidth="108.0" progress="0.48" style="-fx-background-color: lightgreen; -fx-progress-color: green; -fx-font-size: 18; -fx-background-radius: 16; -fx-box-border: green;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="10.0" />
+         </padding>
+      </ProgressIndicator>
+      <ProgressIndicator fx:id="wrongProg" layoutX="416.0" layoutY="224.0" minHeight="130.0" minWidth="130.0" prefHeight="108.0" prefWidth="108.0" progress="0.48" style="-fx-background-color: FFcDD2; -fx-progress-color: red; -fx-font-size: 18; -fx-background-radius: 16; -fx-box-border: red;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </padding>
+      </ProgressIndicator>
+      <Label fx:id="gradeLabel" alignment="CENTER" layoutX="47.0" layoutY="92.0" prefHeight="77.0" prefWidth="310.0" text="You Got 9/10" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Chalkboard SE Light" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="retry" layoutX="91.0" layoutY="329.0" mnemonicParsing="false" onAction="#onClickRetry" prefHeight="32.0" prefWidth="91.0" text="Retry" />
+      <Button fx:id="done" layoutX="223.0" layoutY="329.0" mnemonicParsing="false" onAction="#onClickDone" prefHeight="32.0" prefWidth="91.0" text="Done" />
+   </children>
+</AnchorPane>
