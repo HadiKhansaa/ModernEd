@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="400.0" prefWidth="602.0" style="-fx-background-color: #540051; -fx-border-color: black;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ContactController">
+	<top>
+      <AnchorPane prefHeight="63.0" prefWidth="596.0">
+         <BorderPane.margin>
+            <Insets right="10.0" />
+         </BorderPane.margin>
+         <children>
+      		<ButtonBar layoutX="222.0" layoutY="7.0" prefHeight="59.0" prefWidth="366.0" styleClass="\@style.css">
+              <buttons>
+                  <Button fx:id="home" mnemonicParsing="false" onAction="#homeClick" prefHeight="28.0" prefWidth="166.0" styleClass=".button" stylesheets="@style.css" text="Home">
+                     <font>
+                        <Font size="1.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="register" mnemonicParsing="false" onAction="#registerClick" prefHeight="30.0" prefWidth="166.0" styleClass=".button" stylesheets="@style.css" text="Register" />
+                  <Button fx:id="contact" mnemonicParsing="false" prefHeight="30.0" prefWidth="166.0" style="-fx-background-color: #3308EE;" styleClass=".button" stylesheets="@style.css" text="Contact" textFill="WHITE" />
+                  <Button fx:id="profile" mnemonicParsing="false" onAction="#profileClick" prefHeight="29.0" prefWidth="166.0" styleClass=".button" stylesheets="@style.css" text="Profile" textFill="#222222" />
+              </buttons>
+            </ButtonBar>
+            <AnchorPane layoutX="2.0" layoutY="8.0" prefHeight="54.0" prefWidth="232.0">
+               <children>
+                  <Label layoutX="58.0" layoutY="10.0" text="ModernEd" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="29.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="43.0" fitWidth="47.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/leaf.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+	</top>
+   <left>
+      <AnchorPane prefHeight="200.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="94.0" layoutY="64.0" text="Hadi Al Khansa" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="77.0" layoutY="147.0" text="+961 70 998390" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="74.0" layoutY="224.0" prefHeight="25.0" prefWidth="218.0" text="hadi.kansa.950@gmail.com" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+            </Label>
+            <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="45.0" layoutY="93.0" size="3em" />
+            <FontAwesomeIcon fill="WHITE" glyphName="PHONE" layoutX="41.0" layoutY="175.0" size="3em" />
+            <FontAwesomeIcon fill="WHITE" glyphName="ENVELOPE" layoutX="31.0" layoutY="245.0" size="2em" />
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="311.0" prefWidth="306.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="83.0" layoutY="63.0" text="Haidar Kasseer" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="64.0" layoutY="144.0" text="+961 81 899118" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <Label layoutX="55.0" layoutY="225.0" text="haidar.kasseer@st.ul.edu.lb" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <FontAwesomeIcon fill="WHITE" glyphName="USER" layoutX="26.0" layoutY="92.0" size="3em" />
+            <FontAwesomeIcon fill="WHITE" glyphName="PHONE" layoutX="24.0" layoutY="174.0" size="3em" text="" />
+            <FontAwesomeIcon fill="WHITE" glyphName="ENVELOPE" layoutX="17.0" layoutY="247.0" size="2em" />
+         </children>
+      </AnchorPane>
+   </right>
+</BorderPane>

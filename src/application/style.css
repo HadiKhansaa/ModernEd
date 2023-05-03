@@ -1,0 +1,64 @@
+.button{
+-fx-background-color: #EEEEEE;
+-fx-font-size: 12;
+}
+
+.button:hover
+{
+-fx-background-color: #C0D5F7;
+
+}
+
+.button:pressed
+{
+-fx-background-color: #73A3FEF;
+
+}
+
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#titleLabel {
+    -fx-font-size: 24pt;
+}
+#detailsPane Label {
+    -fx-font-size: 16pt;
+}
+
+#loginBtn:hover {
+   -fx-background-color: #FFFFFF;
+}
+
+.gradient{
+	-fx-background-color: linear-gradient(to left, #3308EE, #540051);
+}
+
+
+.progress-bar {
+    -fx-background-color: #334455; /* Set the background color of the progress bar */
+    -fx-background-insets: 0; /* Remove the default insets around the progress bar */
+     -fx-accent: linear-gradient(from 0% 50% to 100% 50%, #FFB900, #FF8C00, #FF5733, #C70039, #987567, #98765);/* Set the color of the progress bar using a gradient */
+    -fx-background-radius: 10px; /* Set the corner radius of the progress bar */
+}
+
+.progress-bar .track {
+    -fx-background-color: #E6E6E6; /* Set the color of the track */
+    -fx-background-insets: 0; /* Remove the default insets around the track */
+    -fx-background-radius: 10px; /* Set the corner radius of the track */
+}
+
+.progress-bar .bar {
+    -fx-background-insets: 0; /* Remove the default insets around the bar */
+    -fx-background-radius: 10px; /* Set the corner radius of the bar */
+}
+
+.progress-bar:indeterminate .bar {
+    -fx-background-color: #FF2233; /* Set the color of the bar when the progress bar is in indeterminate mode */
+}
+
+.progress-bar:indeterminate .track {
+    -fx-background-color: #839412; /* Set the color of the track when the progress bar is in indeterminate mode */
+}
+
+.progress-bar .text {
+    -fx-font-size: 14px; /* Set the font size of the progress bar text */
+    -fx-fill: #886428; /* Set the color of the progress bar text */
+}

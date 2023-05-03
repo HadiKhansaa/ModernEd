@@ -1,0 +1,11 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+#titleLabel {
+    -fx-font-size: 24pt;
+}
+#detailsPane Label {
+    -fx-font-size: 16pt;
+}
+
+#loginBtn:hover {
+   -fx-background-color: #FFFFFF;
+}

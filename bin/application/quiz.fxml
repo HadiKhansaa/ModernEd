@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="quizBackground" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #540051;" styleClass="quizBackground" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.QuizController">
+   <children>
+      <Label fx:id="question" alignment="CENTER" layoutX="57.0" layoutY="22.0" prefHeight="106.0" prefWidth="445.0" style="-fx-background-color: white; -fx-background-radius: 10px; -fx-padding: 5px;" text="Question 1) what are the benifits of being a friend to someone who cares for you?" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="opt1" layoutX="69.0" layoutY="168.0" mnemonicParsing="false" onAction="#optClicked" prefHeight="84.0" prefWidth="190.0" style="-fx-wrap-text: true;" stylesheets="@style.css" text="Button" textAlignment="CENTER">
+         <font>
+            <Font name="SansSerif Regular" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="opt4" layoutX="296.0" layoutY="277.0" mnemonicParsing="false" onAction="#optClicked" prefHeight="84.0" prefWidth="190.0" style="-fx-wrap-text: true;" stylesheets="@style.css" text="Button" textAlignment="CENTER">
+         <font>
+            <Font name="SansSerif Regular" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="opt3" layoutX="69.0" layoutY="277.0" mnemonicParsing="false" onAction="#optClicked" prefHeight="84.0" prefWidth="190.0" style="-fx-wrap-text: true;" stylesheets="@style.css" text="Button" textAlignment="CENTER">
+         <font>
+            <Font name="SansSerif Regular" size="20.0" />
+         </font>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Button>
+      <Button fx:id="opt2" layoutX="296.0" layoutY="169.0" mnemonicParsing="false" onAction="#optClicked" prefHeight="84.0" prefWidth="190.0" style="-fx-wrap-text: true;" stylesheets="@style.css" text="Button" textAlignment="CENTER">
+         <font>
+            <Font name="SansSerif Regular" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="next" layoutX="525.0" layoutY="234.0" mnemonicParsing="false" onAction="#next" prefHeight="37.0" prefWidth="37.0" style="-fx-background-color: blue;" stylesheets="@style.css" text="&gt;&gt;" textFill="WHITE">
+         <font>
+            <Font name="Corbel Light" size="89.0" />
+         </font>
+      </Button>
+      <FontAwesomeIcon glyphName="QUESTION" layoutX="69.0" layoutY="42.0" />
+      <Label fx:id="timer" layoutX="544.0" layoutY="44.0" text="9" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="33.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
